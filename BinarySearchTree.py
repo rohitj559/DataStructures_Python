@@ -40,28 +40,60 @@ class BinarySearchTree(object):
     # getting the min value
     def GetMin(self):
         if self.rootNode:
-            self.GetMinValue(self.rootNode);
+            return self.GetMinValue(self.rootNode);
             
     def GetMinValue(self, node):
         if node.leftChild:
-            self.GetMinValue(node.leftChild);
+            return self.GetMinValue(node.leftChild);
         else:
             return node.data;
     
     # getting the max value
     def GetMax(self):
         if self.rootNode:
-            self.GetMaxValue(self.rootNode);
+            return self.GetMaxValue(self.rootNode);
             
     def GetMaxValue(self, node):
         if node.rightChild:
-            self.GetMaxValue(node.rightChild);
+            return self.GetMaxValue(node.rightChild);
         else:
             return node.data;
         
     # in-order traversal
-    
+    def traverseInOrder(self):
+        if self.rootNode:
+            self.Traverse(self.rootNode);
             
+    def Traverse(self, node):
+        if node.leftChild:
+            self.Traverse(node.leftChild);
+            
+        print(node.data);
+        
+        if node.rightChild:
+            self.Traverse(node.rightChild);
+            
+# Testing
+            
+# with digits            
+bst = BinarySearchTree()
+bst.Insert(10);
+bst.Insert(5);
+bst.Insert(15);
+bst.Insert(6);
+
+print(bst.GetMin());
+print(bst.GetMax());
+bst.traverseInOrder();
+
+# =============================================================================
+# # with alphabets
+# bst.Insert("A");
+# bst.Insert("Z");
+# bst.Insert("D");
+# bst.Insert("H");
+# bst.traverseInOrder();            
+# =============================================================================
                 
                 
             
